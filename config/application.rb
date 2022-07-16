@@ -36,5 +36,12 @@ module GraphqlRubyNr
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.use(StackProf::Middleware, enabled: true,
+      mode: :cpu,
+      interval: 1000,
+      save_every: 1,
+      raw: true,
+      out: Rails.root.join('tmp/stackprof.dump'))
   end
 end

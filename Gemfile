@@ -48,3 +48,5 @@ group :development do
 end
 
 gem "graphiql-rails", group: :development
+
+gem 'stackprof'
