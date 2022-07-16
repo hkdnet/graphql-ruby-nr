@@ -7,6 +7,13 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+    field :first_user, UserType
+    def first_user
+      u = User.first
+      # u.posts.includes(comments: :created_by)
+      u
+    end
+
     field :with_loader, UserWithLoader
     def with_loader
       User.first
