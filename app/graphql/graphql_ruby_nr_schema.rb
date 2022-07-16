@@ -6,7 +6,12 @@ class GraphqlRubyNrSchema < GraphQL::Schema
   use GraphQL::Dataloader
 
   # newrelic
-  use(GraphQL::Tracing::NewRelicTracing, set_transaction_name: true)
+  if ENV['NEWRELIC'] == 'enabled'
+    Rails.logger.info('NewRelicTracing is enabled.')
+    use(GraphQL::Tracing::NewRelicTracing, set_transaction_name: true)
+  else
+    Rails.logger.info('NewRelicTracing is disabled.')
+  end
 
   # GraphQL-Ruby calls this when something goes wrong while running a query:
   def self.type_error(err, context)

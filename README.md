@@ -2,7 +2,7 @@
 
 ## Result
 
-| query \ NewRelic Tracer | Disabled | Enabled | multiplier |
+| query \ NewRelicTracing | Disabled | Enabled | multiplier |
 | :---------------------- | -------: | ------: | ---------: |
 | firstUser               |    456ms |  1246ms |     x 2.73 |
 | withLoader              |    446ms | 33670ms |    x 75.49 |
@@ -23,11 +23,10 @@ $ bin/rails s
 
 Go to `/graphiql` and run the queries.
 
-Currently NewRelic is enabled.
-To test with NewRelic disabled, please revert `03a2954fc0b6c3819b65cb370e6df567543094e9`.
+By default, NewRelicTracing is disabled. You can eanbled it by setting `NEWRELIC=enabled` environment variable.
 
 ```
-$ git revert 03a2954fc0b6c3819b65cb370e6df567543094e9
+$ NEWRELIC=enabled bin/rails s
 ```
 
 ## Queries
