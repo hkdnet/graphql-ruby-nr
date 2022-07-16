@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Result
 
-Things you may want to cover:
+| query \ NewRelic Tracer | Disabled | Enabled | multiplier |
+| :---------------------- | -------: | ------: | ---------: |
+| firstUser               |    456ms |  1246ms |     x 2.73 |
+| withLoader              |    446ms | 33670ms |    x 75.49 |
 
-* Ruby version
+The time values are picked up from Rails's output. For example, 456ms in this case.
 
-* System dependencies
+```
+Completed 200 OK in 456ms (Views: 12.1ms | ActiveRecord: 28.8ms | Allocations: 267658)
+```
 
-* Configuration
+## Setup
 
-* Database creation
+```
+$ bundle install
+$ bin/rails db:create db:migrate db:seed # seed takes some time
+$ bin/rails s
+```
 
-* Database initialization
+Go to `/graphiql` and run the queries.
 
-* How to run the test suite
+Currently NewRelic is enabled.
+To test with NewRelic disabled, please revert `03a2954fc0b6c3819b65cb370e6df567543094e9`.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ git revert 03a2954fc0b6c3819b65cb370e6df567543094e9
+```
 
-* Deployment instructions
+## Queries
 
-* ...
+```graphql
+{
+  firstUser {
+    name
+    posts {
+      title
+      body
+      comments {
+        body
+        createdBy {
+          name
+        }
+      }
+    }
+  }
+}~
+```
+
+```graphql
+{
+  withLoader {
+    name
+    posts {
+      title
+      body
+      comments {
+        body
+        createdBy {
+          name
+        }
+      }
+    }
+  }
+}~
+```
