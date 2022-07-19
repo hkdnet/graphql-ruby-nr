@@ -14,7 +14,7 @@ gem "puma", "~> 5.0"
 
 gem "graphql"
 
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', github: 'hkdnet/newrelic-ruby-agent', ref: 'f6ae80caf49cc5c68e8838cf127a2c039cdd83cc'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 # gem "importmap-rails"

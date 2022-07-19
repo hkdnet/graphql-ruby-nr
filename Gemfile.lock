@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/hkdnet/newrelic-ruby-agent.git
+  revision: f6ae80caf49cc5c68e8838cf127a2c039cdd83cc
+  ref: f6ae80caf49cc5c68e8838cf127a2c039cdd83cc
+  specs:
+    newrelic_rpm (8.9.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,7 +120,6 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.9.0)
     nio4r (2.5.8)
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
@@ -184,7 +190,7 @@ DEPENDENCIES
   debug
   graphiql-rails
   graphql
-  newrelic_rpm
+  newrelic_rpm!
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   sqlite3 (~> 1.4)

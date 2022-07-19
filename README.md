@@ -2,10 +2,12 @@
 
 ## Result
 
-| query \ NewRelicTracing | Disabled | Enabled | multiplier |
-| :---------------------- | -------: | ------: | ---------: |
-| firstUser               |    456ms |  1246ms |     x 2.73 |
-| withLoader              |    446ms | 33670ms |    x 75.49 |
+| query \ NewRelicTracing | Disabled | Enabled 
+| :---------------------- | -------: | ------: 
+| firstUser               |    979ms |  1069ms 
+| withLoader              |    403ms | 626ms 
+
+NOTE: 2022-07-19 today, my machine shows a different result than https://github.com/hkdnet/graphql-ruby-nr/commit/ccefc10dcae5a1ed90eaba4cc6f8ea3bcb6e38a4 . Not sure why, but at least I can see the improvement.
 
 The time values are picked up from Rails's output. For example, 456ms in this case.
 
